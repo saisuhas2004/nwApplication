@@ -6,12 +6,12 @@ from selenium import webdriver
 
 import pageObjects
 from pageObjects.LoginPage import LoginPage
-
+from utilities.readPeoperties import ReadConfig
 
 class Test_001_Login:
-    baseURL="https://www.uhc.com/"
-    username="testemail"
-    password="justpassword"
+    baseURL=ReadConfig.getApplicationURL()
+    username=ReadConfig.getUserName()
+    password=ReadConfig.getPassword()
 
     def test_homePageTitle(self,setup):
         self.driver = setup
