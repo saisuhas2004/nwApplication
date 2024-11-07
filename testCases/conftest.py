@@ -37,7 +37,7 @@ def pytest_configure(config):
     config._metadata = {
         "Project Name": "Hybrid Framework Practice",
         "Module Name": "Customers",
-        "Tester": "Amar"
+        "Automation Engineer": "Pavan"
     }
 
 # it is hook for delete/modify Environment info to HTML Report
