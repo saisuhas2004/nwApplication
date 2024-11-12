@@ -118,13 +118,13 @@ class LoginPage:
         sleep(3)
         # to scroll try use the following command
         self.driver.execute_script("scrollBy(0,1000);")
-        time.sleep(5)
+        time.sleep(3)
         self.driver.find_element(By.XPATH, LoginPage.securityQuestionOneDropDown).click()
         self.driver.find_element(By.XPATH, LoginPage.securityQuestionOne).click()
         self.driver.find_element(By.NAME, LoginPage.securityQuestionOneAns).send_keys("Station")
 
     def createAccountSecondSecurityQuestion(self):
-        sleep(3)
+        sleep(2)
         self.driver.find_element(By.XPATH, LoginPage.securityQuestionTwoDropDown).click()
         self.driver.find_element(By.XPATH, LoginPage.securityQuestionTwo).click()
         self.driver.find_element(By.NAME, LoginPage.securityQuestionTwoAns).send_keys("Child")
@@ -137,12 +137,11 @@ class LoginPage:
         sleep(3)
         # to scroll try use the following command
         self.driver.execute_script("scrollBy(0,500);")
-        time.sleep(5)
+        time.sleep(3)
 
 
 
     def createAccount_ClickOnCreateAccountButton(self):
-        sleep(2)
         self.driver.find_element(By.ID, LoginPage.iUnderstandCheckBox).click()
         self.driver.find_element(By.ID, LoginPage.createAccountButton).click()
         time.sleep(4)
@@ -150,17 +149,17 @@ class LoginPage:
     def createAccount_LogIntoAppSpotAccount(self,email):
         time.sleep(3)
         self.driver.find_element(By.NAME, LoginPage.emailAddressTextbox).send_keys(email)
-        time.sleep(3)
+        time.sleep(1)
         self.driver.find_element(By.XPATH, LoginPage.checkMessageButton).click()
-        time.sleep(3)
+        time.sleep(1)
         self.driver.find_element(By.XPATH, LoginPage.checkMailInBox).click()
-        time.sleep(3)
+        time.sleep(1)
         self.driver.find_element(By.XPATH, LoginPage.verifyMyEmailAddress).click()
 
     def createAccount_LoginIntoHealtCare(self, email):
         time.sleep(3)
         self.driver.find_element(By.XPATH, LoginPage.loginButton).click()
-        time.sleep(3)
+        time.sleep(2)
         self.driver.find_element(By.NAME, LoginPage.username).send_keys(email)
         time.sleep(1)
         self.driver.find_element(By.NAME, LoginPage.pasword).send_keys("Test123#")
@@ -168,7 +167,7 @@ class LoginPage:
         self.driver.find_element(By.ID, LoginPage.login).click()
         time.sleep(5)
         self.driver.find_element(By.XPATH, LoginPage.setUpLater).click()
-        time.sleep(3)
+        time.sleep(2)
         self.driver.find_element(By.XPATH, LoginPage.manageYourSetting).click()
         time.sleep(1)
         self.driver.find_element(By.XPATH, LoginPage.verifyNow).click()
@@ -180,7 +179,7 @@ class LoginPage:
         self.driver.find_element(By.XPATH, LoginPage.streetAddress).send_keys("RR 9 BOX 126")
         time.sleep(1)
         self.driver.execute_script("scrollBy(0,800);")
-        time.sleep(5)
+        time.sleep(3)
         self.driver.find_element(By.XPATH, LoginPage.city).send_keys("HENDERSON")
         self.driver.find_element(By.XPATH, LoginPage.zip).send_keys("27536")
 
@@ -188,8 +187,9 @@ class LoginPage:
         self.driver.find_element(By.XPATH, LoginPage.termsAndConditions).click()
         time.sleep(2)
         self.driver.find_element(By.XPATH, LoginPage.continueButton).click()
-        time.sleep(3)
+        time.sleep(2)
         messageValue = self.driver.find_element(By.TAG_NAME, "h1")
+        print(messageValue)
 
 
 
