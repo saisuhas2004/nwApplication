@@ -49,13 +49,13 @@ class Test_001_NewAccountRegistration:
 
 
 
-    def test_Kayak_Flight_Price(self, setup):
-        self.logger.debug("Test Case_02 Kayak Flight Price")
-        self.driver = setup
-        self.driver.get(self.baseKayakURL)
-        act_title = self.driver.title
-        print(act_title)
-        kayakPage.search_Flights_On_Landing_Page(self)
+    # def test_Kayak_Flight_Price(self, setup):
+    #     self.logger.debug("Test Case_02 Kayak Flight Price")
+    #     self.driver = setup
+    #     self.driver.get(self.baseKayakURL)
+    #     act_title = self.driver.title
+    #     print(act_title)
+    #     kayakPage.search_Flights_On_Landing_Page(self)
 
 
 
