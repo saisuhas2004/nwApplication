@@ -191,13 +191,6 @@ class LoginPage:
         messageValue = self.driver.find_element(By.TAG_NAME, "h1")
         print(messageValue)
 
-
-
-
-
-
-
-
     def setUserName(self,username):
         self. driver.find_element(By.ID, self.sign_in_button_ID).click()
         time.sleep(5)
@@ -207,3 +200,12 @@ class LoginPage:
         time.sleep(10)
     def setPassword(self, password):
         self.driver.find_element(By.ID, self.password_texbox_ID).send_keys(password)
+
+    def LoginWithExistingAccount_HealthCare(self, registered_Email):
+        time.sleep(2)
+        self.driver.find_element(By.NAME, LoginPage.username).send_keys(registered_Email)
+        time.sleep(1)
+        self.driver.find_element(By.NAME, LoginPage.pasword).send_keys("Test123#")
+        time.sleep(1)
+        self.driver.find_element(By.ID, LoginPage.login).click()
+        time.sleep(5)
