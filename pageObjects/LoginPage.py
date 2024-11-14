@@ -2,6 +2,7 @@ import time
 from time import sleep
 import random
 from selenium.webdriver.common.action_chains import ActionChains
+from utilities.writeToOracleDatabase import writeToOracleDB
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By

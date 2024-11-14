@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 
 class accountHomePage:
     pickTheStateYouLiveInDropDown = "//*[@id='stateDropdown']"
-    pickTheState = "//li[@data-key='NC']"
+    pickTheState = "//*[@id='stateDropdown__item--20']/span[text()='North Carolina']"
     startapplication="//button[text()='Start application']"
     ContinueButton = "fars-continue"
     menu = "//button//following::span[text()='Menu']"
@@ -32,10 +32,12 @@ class accountHomePage:
     def selectStateOnExistingAccountHomePage(self):
         sleep(5)
         self.driver.find_element(By.XPATH, accountHomePage.pickTheStateYouLiveInDropDown).click()
+        sleep(1)
         # get  element
         element = self.driver.find_element(By.XPATH, accountHomePage.pickTheState)
         # create action chain object
         action = ActionChains(self.driver)
         # perform the operation
         action.move_to_element(element).click().perform()
+        sleep(1)
         self.driver.find_element(By.XPATH, accountHomePage.startapplication).click()
