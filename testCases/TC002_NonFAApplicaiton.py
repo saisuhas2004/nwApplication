@@ -15,6 +15,8 @@ from pageObjects.whoNeedsHealthCoverage import whoNeedsHealthCoverage
 from pageObjects.yourMarketplaceApplicationPage import yourMarketPlaceApplicationPage
 from pageObjects.applicationSetupPage import applicationSetupPage
 from pageObjects.decideTocheckForSavings import decideToCheckForSavings
+from pageObjects.currentCoverageAndSEP import currentCoverageAndSEP
+
 from pageObjects.kayak import kayakPage
 from utilities.readPeoperties import ReadConfig
 from utilities.customLogger import LogGen
@@ -66,6 +68,11 @@ class Test_002_NonFAApplicaiton:
         tellUsAboutYourself.tellUsAboutYourselfInformation(self)
         homeAddress.homeAddressInfo(self)
         whoNeedsHealthCoverage.whoNeedHealthCoverage(self)
+        currentCoverageAndSEP.currentCoverage(self)
+        currentCoverageAndSEP.specialEnrollmentPeriodEligibility(self)
+        currentCoverageAndSEP.healthReimbursementArrangementHRAOffers(self)
+        currentCoverageAndSEP.specialEnrollmentPage(self)
+
 
 
 

@@ -1,5 +1,6 @@
 from time import sleep
 
+from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 
 
@@ -17,7 +18,10 @@ class tellUsAboutYourself:
         sleep(3)
         self.driver.execute_script("scrollBy(0,1000);")
         sleep(3)
+        self.driver.find_element(By.XPATH, tellUsAboutYourself.birthYear).send_keys(Keys.CONTROL + "a")
+        self.driver.find_element(By.XPATH, tellUsAboutYourself.birthYear).send_keys(Keys.DELETE)
         self.driver.find_element(By.XPATH, tellUsAboutYourself.birthYear).send_keys("1980")
+        sleep(1)
         self.driver.find_element(By.XPATH, tellUsAboutYourself.sex).click()
         self.driver.execute_script("scrollBy(0,200);")
         self.driver.find_element(By.XPATH, tellUsAboutYourself.saveAndContinue).click()
