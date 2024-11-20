@@ -1,5 +1,6 @@
-
+import re
 from time import sleep
+
 
 from pytest_check import check
 from selenium.webdriver import ActionChains
@@ -83,9 +84,12 @@ class planComparePage:
         self.driver.find_element(By.XPATH, planComparePage.noCompleteHealthPlanEnrollment).click()
         self.driver.find_element(By.XPATH, planComparePage.conformPlanChoice).click()
         sleep(18)
+        get_url =self.driver.current_url
+        Application_ID = re.sub('[^0-9]', '', get_url)
+        print("Application ID==" + Application_ID)
 
         #You're almost done
-        self.driver.save_screenshot('PlanComparePage.png')
+        self.driver.save_screenshot("C:/Users/USER/PycharmProjects/nwApplication/ApplicationID_"+Application_ID+"_PlanComparePage.png")
         message = self.driver.find_element(By.XPATH, planComparePage.yourAlmostDone)
         print(message.text)
 
