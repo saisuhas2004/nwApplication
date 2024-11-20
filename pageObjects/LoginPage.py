@@ -170,7 +170,7 @@ class LoginPage:
         self.driver.find_element(By.XPATH, LoginPage.setUpLater).click()
         time.sleep(2)
         self.driver.find_element(By.XPATH, LoginPage.manageYourSetting).click()
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element(By.XPATH, LoginPage.verifyNow).click()
         time.sleep(2)
         self.driver.find_element(By.XPATH, LoginPage.birthMonth).send_keys("06")
@@ -191,6 +191,8 @@ class LoginPage:
         time.sleep(2)
         messageValue = self.driver.find_element(By.TAG_NAME, "h1")
         print(messageValue)
+        time_string = time.asctime().replace(":"," ")
+        self.driver.save_screenshot("C:\\Users\\USER\\PycharmProjects\\nwApplication\\screenshots\\RIDPPage"+time_string+".png")
 
     def setUserName(self,username):
         self. driver.find_element(By.ID, self.sign_in_button_ID).click()

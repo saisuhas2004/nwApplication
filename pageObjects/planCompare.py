@@ -1,4 +1,5 @@
 import re
+import time
 from time import sleep
 
 
@@ -89,7 +90,10 @@ class planComparePage:
         print("Application ID==" + Application_ID)
 
         #You're almost done
-        self.driver.save_screenshot("C:/Users/USER/PycharmProjects/nwApplication/ApplicationID_"+Application_ID+"_PlanComparePage.png")
+        time_string = time.asctime().replace(":", " ")
+        self.driver.save_screenshot(
+            "C:\\Users\\USER\\PycharmProjects\\nwApplication\\screenshots\\ApplicationID_" +Application_ID+"__PlanComparePage_"+time_string + ".png")
+
         message = self.driver.find_element(By.XPATH, planComparePage.yourAlmostDone)
         print(message.text)
 

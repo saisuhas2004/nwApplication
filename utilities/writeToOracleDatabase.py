@@ -36,11 +36,9 @@ class writeToOracleDB:
                 sql = "SELECT email_id FROM loginUsers ORDER BY ROWNUM DESC FETCH FIRST ROW ONLY"
                 cursor.execute(sql)
                 row = cursor.fetchone()
-                print(row)
                 return_value = row[0]
                 print(return_value)
                 print("Data retrieved successfully!")
                 # Commit the changes
-
             connection.close()
             return return_value

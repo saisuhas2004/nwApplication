@@ -59,13 +59,11 @@ class Test_002_NonFAApplicaiton:
         LoginPage.closePopupOnLandingPage(self)
         LoginPage.clickOn_LoginLink(self)
         LoginPage.LoginWithExistingAccount_HealthCare(self, writeToOracleDB.readFromDatabase())
-
        #start the application
         accountHomePage.selectStateOnExistingAccountHomePage(self)
         protectingYourPersonalInformation.protectingYourPersonalInformation(self)
         yourMarketPlaceApplicationPage.continueYourMarketPlaceApplicationPage(self)
         applicationSetupPage.applicationSetupPageContinue(self)
-       #yourMarketPlaceApplicationPage.continueYourMarketPlaceApplicationPage(self)
         decideToCheckForSavings.enterApplicationTaxFilingInformation(self)
         tellUsAboutYourself.tellUsAboutYourselfInformation(self)
         homeAddress.homeAddressInfo(self)
