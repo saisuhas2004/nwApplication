@@ -21,7 +21,6 @@ class writeToOracleDB:
 
             # Commit the changes
             connection.commit()
-            cursor.close()
             connection.close()
 
     @staticmethod

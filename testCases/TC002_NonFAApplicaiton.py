@@ -9,6 +9,7 @@ import pageObjects
 from pageObjects.LoginPage import LoginPage
 from pageObjects.accountHomePage import accountHomePage
 from pageObjects.homeAddress import homeAddress
+from pageObjects.planCompare import planComparePage
 from pageObjects.protectingYourPersonalInformationPage import protectingYourPersonalInformation
 from pageObjects.tellUsAboutYourself import tellUsAboutYourself
 from pageObjects.whoNeedsHealthCoverage import whoNeedsHealthCoverage
@@ -16,6 +17,7 @@ from pageObjects.yourMarketplaceApplicationPage import yourMarketPlaceApplicatio
 from pageObjects.applicationSetupPage import applicationSetupPage
 from pageObjects.decideTocheckForSavings import decideToCheckForSavings
 from pageObjects.currentCoverageAndSEP import currentCoverageAndSEP
+from pageObjects.planCompare import planComparePage
 
 from pageObjects.kayak import kayakPage
 from utilities.readPeoperties import ReadConfig
@@ -58,12 +60,12 @@ class Test_002_NonFAApplicaiton:
         LoginPage.clickOn_LoginLink(self)
         LoginPage.LoginWithExistingAccount_HealthCare(self, writeToOracleDB.readFromDatabase())
 
-       #  # start the application
+       #start the application
         accountHomePage.selectStateOnExistingAccountHomePage(self)
         protectingYourPersonalInformation.protectingYourPersonalInformation(self)
         yourMarketPlaceApplicationPage.continueYourMarketPlaceApplicationPage(self)
         applicationSetupPage.applicationSetupPageContinue(self)
-       # #yourMarketPlaceApplicationPage.continueYourMarketPlaceApplicationPage(self)
+       #yourMarketPlaceApplicationPage.continueYourMarketPlaceApplicationPage(self)
         decideToCheckForSavings.enterApplicationTaxFilingInformation(self)
         tellUsAboutYourself.tellUsAboutYourselfInformation(self)
         homeAddress.homeAddressInfo(self)
@@ -72,6 +74,7 @@ class Test_002_NonFAApplicaiton:
         currentCoverageAndSEP.specialEnrollmentPeriodEligibility(self)
         currentCoverageAndSEP.healthReimbursementArrangementHRAOffers(self)
         currentCoverageAndSEP.specialEnrollmentPage(self)
+        planComparePage.eligibleToEnroll(self)
 
 
 

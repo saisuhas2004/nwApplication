@@ -18,6 +18,7 @@ class currentCoverageAndSEP:
     signElectronically="//*[@name='applicationSignatureText']"
     signAndSubmitButton="//button/span[text()='Sign & submit']"
     viewEligibilityNotice="//button[@id='viewEligibility']"
+    continueToEnrollment = "//button[@id='proceedToEnrollBtn']"
 
     def __init__(self, driver):
         self.driver = driver
@@ -104,14 +105,15 @@ class currentCoverageAndSEP:
             self.driver.find_element(By.XPATH, currentCoverageAndSEP.penaltyOfPerjuryAgreementIndicator).click()
             self.driver.find_element(By.XPATH, currentCoverageAndSEP.signElectronically).send_keys("JOYCE WATLINGTON")
             self.driver.find_element(By.XPATH, currentCoverageAndSEP.signAndSubmitButton).click()
-            sleep(20)
+            sleep(22)
 
             #Eligibility results
-            self.driver.find_element(By.XPATH, currentCoverageAndSEP.iAgree).click()
             self.driver.execute_script("scrollBy(0,700);")
             sleep(3)
             self.driver.find_element(By.XPATH, currentCoverageAndSEP.viewEligibilityNotice).click()
-            sleep(55)
+            sleep(3)
+            self.driver.find_element(By.XPATH, currentCoverageAndSEP.continueToEnrollment).click()
+            sleep(6)
 
 
 
