@@ -30,7 +30,7 @@ class Test_002_NonFAApplicaiton:
     username=ReadConfig.getUserName()
     password=ReadConfig.getPassword()
     logger=LogGen.loggen()
-    Commonmethods = CommonMethods()
+    Commonmethods = CommonMethods
 
     # number = random.randint(1000, 9999)
     # email = "MapchuWill" + str(number) + "@message-checker.appspotmail.com"
@@ -73,11 +73,6 @@ class Test_002_NonFAApplicaiton:
         currentCoverageAndSEP.healthReimbursementArrangementHRAOffers(self)
         currentCoverageAndSEP.specialEnrollmentPage(self)
         planComparePage.eligibleToEnroll(self)
-
-
-
-
-
 
 
 

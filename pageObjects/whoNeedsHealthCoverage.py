@@ -6,7 +6,7 @@ from pageObjects.methods_Mapping import pageMapper
 from utilities.commonMethods import CommonMethods
 
 class whoNeedsHealthCoverage:
-    Commonmethods = CommonMethods()
+    Commonmethods = CommonMethods
     noneOfTheseApplyToThePeopleInTheHouseHold="//input[@name='householdSituation'][@value='none']"
     dontHaveSSN = "//input[@name='doesnothavessn']"
     citizenshipYes = "//input[@name='allCitizenBoolean']"

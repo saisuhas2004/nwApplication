@@ -1,14 +1,36 @@
+import json
+
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
 
 
 class CommonMethods:
 
 
 
-
-    def writeToTextFile(self, email):
+    def writeToTextFile(email):
         with open(
             'C:\\Users\\USER\\PycharmProjects\\behaveHealthCareGov\\features\\resources\\RIDP_Accounts.txt'
             ,'a') as file:
          file.write(email + '\n')
-         print("New Line added")
+         print("***New Email ID added to text file***")
          file.close()
+
+    def __init__(self, driver):
+        self.driver = driver
+
+    def actionToMoveToElement(self, WebElement):
+         # create action chain object
+        element = self.driver.find_element(By.XPATH, WebElement)
+        action = ActionChains(self.driver)
+        # perform the operation
+        action.move_to_element(element).click().perform()
+
+    def readDataFromJson(self):
+        myJsonfile = open('utilities/test_Data.json','r')
+        jsonData = myJsonfile.read()
+
+        # Parse the data
+        obj = json.loads(jsonData)
+        print (str(obj['NCFirst_Name']))
+

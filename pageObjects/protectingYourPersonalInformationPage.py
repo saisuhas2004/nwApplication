@@ -3,10 +3,13 @@ from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.by import By
 
+from utilities.commonMethods import CommonMethods
+
 
 class protectingYourPersonalInformation:
-    IAgree ="acceptedDataUsedStatement"  #Name
-    IUnderstand = "acceptedTruthfullnessStatement"  # Name
+    Commonmethods = CommonMethods
+    IAgree ="//*[@name='acceptedDataUsedStatement']"  #Name
+    IUnderstand = "//*[@name='acceptedTruthfullnessStatement']"  # Name
     ContinueButton="//span[text()='Continue']"
 
 
@@ -16,9 +19,8 @@ class protectingYourPersonalInformation:
 
     def protectingYourPersonalInformation(self):
         sleep(5)
-        self.driver.execute_script("scrollBy(0,1000);")
-        sleep(2)
-        self.driver.find_element(By.NAME, protectingYourPersonalInformation.IAgree).click()
-        self.driver.find_element(By.NAME, protectingYourPersonalInformation.IUnderstand).click()
-        self.driver.find_element(By.XPATH, protectingYourPersonalInformation.ContinueButton).click()
+        protectingYourPersonalInformation.Commonmethods.actionToMoveToElement(self, protectingYourPersonalInformation.IAgree)
+        sleep(1)
+        protectingYourPersonalInformation.Commonmethods.actionToMoveToElement(self, protectingYourPersonalInformation.IUnderstand)
+        protectingYourPersonalInformation.Commonmethods.actionToMoveToElement(self, protectingYourPersonalInformation.ContinueButton)
         sleep(5)

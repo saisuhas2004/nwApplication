@@ -28,7 +28,7 @@ class Test_001_NewAccountRegistration:
     username=ReadConfig.getUserName()
     password=ReadConfig.getPassword()
     logger=LogGen.loggen()
-    Commonmethods = CommonMethods()
+    Commonmethods= CommonMethods
 
     number = random.randint(1000, 9999)
     email = "MapchuWill" + str(number) + "@message-checker.appspotmail.com"
@@ -59,7 +59,3 @@ class Test_001_NewAccountRegistration:
         LoginPage.createAccount_LoginIntoHealtCare(self, self.email)
         Test_001_NewAccountRegistration.Commonmethods.writeToTextFile(self.email)
         writeToOracleDB.writeToDatabase(self.email)
-
-
-
-

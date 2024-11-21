@@ -1,13 +1,14 @@
 import time
 from time import sleep
 import random
-from selenium.webdriver.common.action_chains import ActionChains
 from utilities.writeToOracleDatabase import writeToOracleDB
+from utilities.commonMethods import CommonMethods
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 class LoginPage:
+    Commonmethods = CommonMethods
     sign_in_button_ID="signInButton_CustomDropdown_Btn"
     member_logIn_ID='1018124763'
     username_textbox_ID="username"
@@ -33,8 +34,8 @@ class LoginPage:
     securityQuestionThreeDropDown = "//*[@data-testid='securityQuestionThree']"
     securityQuestionThree = "//span[text()='What is your favorite cuisine?']"
     securityQuestionThreeAns = "answer3"
-    iUnderstandCheckBox = "terms-checkbox"
-    createAccountButton = "create-account-button"
+    iUnderstandCheckBox = "//*[@id='terms-checkbox']"
+    createAccountButton = "//*[@id='create-account-button']"
     accountCreationMessage = "//h2[text()='Verify your email address to finish creating your account']"
 
     # https://message-checker.appspot.com/
@@ -90,13 +91,7 @@ class LoginPage:
 
     def createAccountPickTheState(self):
         sleep(3)
-        # get  element
-        element = self.driver.find_element(By.XPATH, LoginPage.pickTheState)
-        # create action chain object
-        action = ActionChains(self.driver)
-        # perform the operation
-        action.move_to_element(element).click().perform()
-
+        LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.pickTheState)
 
     def createAccountEnterFirstName(self):
         sleep(2)
@@ -118,33 +113,41 @@ class LoginPage:
     def createAccountFirstSecurityQuestion(self):
         sleep(3)
         # to scroll try use the following command
-        self.driver.execute_script("scrollBy(0,1000);")
+        #self.driver.execute_script("scrollBy(0,1000);")
+        time.sleep(1)
+        LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionOneDropDown)
         time.sleep(3)
-        self.driver.find_element(By.XPATH, LoginPage.securityQuestionOneDropDown).click()
-        self.driver.find_element(By.XPATH, LoginPage.securityQuestionOne).click()
+        LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionOne)
         self.driver.find_element(By.NAME, LoginPage.securityQuestionOneAns).send_keys("Station")
 
     def createAccountSecondSecurityQuestion(self):
         sleep(2)
-        self.driver.find_element(By.XPATH, LoginPage.securityQuestionTwoDropDown).click()
-        self.driver.find_element(By.XPATH, LoginPage.securityQuestionTwo).click()
+        LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionTwoDropDown)
+       # self.driver.find_element(By.XPATH, LoginPage.securityQuestionTwoDropDown).click()
+        LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionTwo)
+       # self.driver.find_element(By.XPATH, LoginPage.securityQuestionTwo).click()
         self.driver.find_element(By.NAME, LoginPage.securityQuestionTwoAns).send_keys("Child")
 
     def createAccountThirdSecurityQuestion(self):
         sleep(2)
-        self.driver.find_element(By.XPATH, LoginPage.securityQuestionThreeDropDown).click()
-        self.driver.find_element(By.XPATH, LoginPage.securityQuestionThree).click()
+        LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionThreeDropDown)
+        #self.driver.find_element(By.XPATH, LoginPage.securityQuestionThreeDropDown).click()
+        LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionThree)
+        #self.driver.find_element(By.XPATH, LoginPage.securityQuestionThree).click()
         self.driver.find_element(By.NAME, LoginPage.securityQuestionThreeAns).send_keys("cuisine")
         sleep(3)
         # to scroll try use the following command
-        self.driver.execute_script("scrollBy(0,500);")
-        time.sleep(3)
+        #self.driver.execute_script("scrollBy(0,500);")
+        #time.sleep(3)
 
 
 
     def createAccount_ClickOnCreateAccountButton(self):
-        self.driver.find_element(By.ID, LoginPage.iUnderstandCheckBox).click()
-        self.driver.find_element(By.ID, LoginPage.createAccountButton).click()
+        LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.iUnderstandCheckBox)
+        time.sleep(3)
+       # self.driver.find_element(By.ID, LoginPage.iUnderstandCheckBox).click()
+        LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.createAccountButton)
+        #self.driver.find_element(By.ID, LoginPage.createAccountButton).click()
         time.sleep(4)
 
     def createAccount_LogIntoAppSpotAccount(self,email):
@@ -168,7 +171,7 @@ class LoginPage:
         self.driver.find_element(By.ID, LoginPage.login).click()
         time.sleep(5)
         self.driver.find_element(By.XPATH, LoginPage.setUpLater).click()
-        time.sleep(2)
+        time.sleep(3)
         self.driver.find_element(By.XPATH, LoginPage.manageYourSetting).click()
         time.sleep(2)
         self.driver.find_element(By.XPATH, LoginPage.verifyNow).click()
@@ -179,20 +182,24 @@ class LoginPage:
         time.sleep(1)
         self.driver.find_element(By.XPATH, LoginPage.streetAddress).send_keys("RR 9 BOX 126")
         time.sleep(1)
-        self.driver.execute_script("scrollBy(0,800);")
+        LoginPage.Commonmethods.actionToMoveToElement(self,  LoginPage.city)
+       # self.driver.execute_script("scrollBy(0,800);")
         time.sleep(3)
         self.driver.find_element(By.XPATH, LoginPage.city).send_keys("HENDERSON")
         self.driver.find_element(By.XPATH, LoginPage.zip).send_keys("27536")
 
         self.driver.find_element(By.XPATH, LoginPage.phone).send_keys("9106944250")
-        self.driver.find_element(By.XPATH, LoginPage.termsAndConditions).click()
+        time.sleep(1)
+        LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.termsAndConditions)
         time.sleep(2)
-        self.driver.find_element(By.XPATH, LoginPage.continueButton).click()
+        LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.continueButton)
         time.sleep(2)
         messageValue = self.driver.find_element(By.TAG_NAME, "h1")
         print(messageValue)
-        time_string = time.asctime().replace(":"," ")
-        self.driver.save_screenshot("C:\\Users\\USER\\PycharmProjects\\nwApplication\\screenshots\\RIDPPage"+time_string+".png")
+        time.sleep(6)
+        time_string = time.asctime().replace(":", " ")
+        self.driver.save_screenshot(
+            "C:\\Users\\USER\\PycharmProjects\\nwApplication\\screenshots\\RIDPPage" + time_string + ".png")
 
     def setUserName(self,username):
         self. driver.find_element(By.ID, self.sign_in_button_ID).click()

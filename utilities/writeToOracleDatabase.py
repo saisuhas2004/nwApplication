@@ -14,10 +14,10 @@ class writeToOracleDB:
             with connection.cursor() as cursor:
                 print("Email Value to Insert in DB" + emailID)
                 # Execute an INSERT statement
-                sql = "INSERT INTO loginUsers (EMAIL_ID, STATE) VALUES (:1, :2)"
-                values = (emailID, "NC")
+                sql = "INSERT INTO loginUsers (EMAIL_ID, STATE, Email_Status) VALUES (:1, :2, :3)"
+                values = (emailID, "NC","New")
                 cursor.execute(sql, values)
-                print("Data inserted successfully!")
+                print("***Data inserted successfully!")
 
             # Commit the changes
             connection.commit()
@@ -33,12 +33,12 @@ class writeToOracleDB:
         with oracledb.connect(user=username, password=password, dsn=dsn) as connection:
             with connection.cursor() as cursor:
                 # Execute an INSERT statement
-                sql = "SELECT email_id FROM loginUsers ORDER BY ROWNUM DESC FETCH FIRST ROW ONLY"
+                sql = "select * from loginUsers ORDER BY Email_Status DESC FETCH FIRST 1 ROWS ONLY"
                 cursor.execute(sql)
                 row = cursor.fetchone()
                 return_value = row[0]
                 print(return_value)
-                print("Data retrieved successfully!")
+                print("***Data retrieved successfully!")
                 # Commit the changes
             connection.close()
             return return_value

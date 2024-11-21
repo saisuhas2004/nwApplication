@@ -55,7 +55,6 @@ class planComparePage:
         #Pick a health plan
         sleep(5)
         self.driver.execute_script("scrollBy(0,600);")
-        #self.driver.find_element(By.XPATH, planComparePage.enrollButton).select_by_index(0).click()
         sleep(5)
        # self.driver.execute_script("scrollBy(0,900);")
         elements =self.driver.find_elements(By.XPATH, planComparePage.enrollButton)
