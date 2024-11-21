@@ -26,11 +26,11 @@ class CommonMethods:
         # perform the operation
         action.move_to_element(element).click().perform()
 
-    def readDataFromJson(self):
-        myJsonfile = open('utilities/test_Data.json','r')
+    def readDataFromJson(self,State, dataField):
+        myJsonfile = open("C:\\Users\\USER\\PycharmProjects\\nwApplication\\utilities\\test_Data.json", 'r')
         jsonData = myJsonfile.read()
-
+        jsonElement= State+dataField
         # Parse the data
         obj = json.loads(jsonData)
-        print (str(obj['NCFirst_Name']))
+        return str(obj[0][jsonElement])
 

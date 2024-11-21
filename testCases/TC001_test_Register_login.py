@@ -35,7 +35,9 @@ class Test_001_NewAccountRegistration:
     print("Email is generated successfully *** " + email)
 
 
+
     def test_ApplicationCreation(self,setup):
+        State = 'NC'
         self.logger.debug("Test Case_01 HomePage Title")
         self.driver = setup
         self.driver.get(self.baseURL)
@@ -46,8 +48,8 @@ class Test_001_NewAccountRegistration:
         LoginPage.createAccountLink(self)
         LoginPage.createAccount_pickTheStateYouLiveInDropDown(self)
         LoginPage.createAccountPickTheState(self)
-        LoginPage.createAccountEnterFirstName(self)
-        LoginPage.createAccountEnterLastName(self)
+        LoginPage.createAccountEnterFirstName(self,State)
+        LoginPage.createAccountEnterLastName(self,State)
         LoginPage.createAccountEnterEmail(self, self.email)
         LoginPage.createAccountEnterPassword(self)
         LoginPage.createAccountFirstSecurityQuestion(self)
@@ -56,6 +58,6 @@ class Test_001_NewAccountRegistration:
         LoginPage.createAccount_ClickOnCreateAccountButton(self)
         self.driver.get(self.baseAppSpotURL)
         LoginPage.createAccount_LogIntoAppSpotAccount(self, self.email)
-        LoginPage.createAccount_LoginIntoHealtCare(self, self.email)
+        LoginPage.createAccount_LoginIntoHealtCare(self, self.email,State)
         Test_001_NewAccountRegistration.Commonmethods.writeToTextFile(self.email)
         writeToOracleDB.writeToDatabase(self.email)
