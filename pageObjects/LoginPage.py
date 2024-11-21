@@ -110,8 +110,6 @@ class LoginPage:
 
     def createAccountFirstSecurityQuestion(self):
         sleep(3)
-        # to scroll try use the following command
-        #self.driver.execute_script("scrollBy(0,1000);")
         time.sleep(1)
         LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionOneDropDown)
         time.sleep(3)
@@ -129,9 +127,7 @@ class LoginPage:
     def createAccountThirdSecurityQuestion(self):
         sleep(2)
         LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionThreeDropDown)
-        #self.driver.find_element(By.XPATH, LoginPage.securityQuestionThreeDropDown).click()
         LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionThree)
-        #self.driver.find_element(By.XPATH, LoginPage.securityQuestionThree).click()
         self.driver.find_element(By.NAME, LoginPage.securityQuestionThreeAns).send_keys(CommonMethods.readDataFromJson(self, "", "SecurityThreeAns"))
         sleep(3)
 
