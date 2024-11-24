@@ -72,7 +72,6 @@ class homeAddress:
         self.driver.find_element(By.XPATH, homeAddress.phoneTypeHome).click()
         sleep(2)
         homeAddress.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.saveAndContinue)
-        #self.driver.execute_script("scrollBy(0,1000);")
         sleep(3)
         self.driver.find_element(By.XPATH, pageMapper.CommonObjects.saveAndContinue).click()
         sleep(5)

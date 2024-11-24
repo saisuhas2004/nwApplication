@@ -25,8 +25,7 @@ class whoNeedsHealthCoverage:
         #self.driver.execute_script("scrollBy(0,1000);")
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.continuButton)
         sleep(5)
-       # self.driver.find_element(By.XPATH, pageMapper.CommonObjects.continuButton).click()
-        sleep(5)
+
 
     #Household information
         self.driver.find_element(By.XPATH, whoNeedsHealthCoverage.noneOfTheseApplyToThePeopleInTheHouseHold).click()
@@ -35,25 +34,19 @@ class whoNeedsHealthCoverage:
 
 
     #Help improve health care access
-       # self.driver.execute_script("scrollBy(0,1000);")
+
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.continuButton)
-        sleep(2)
-#        self.driver.find_element(By.XPATH, pageMapper.CommonObjects.continuButton).click()
         sleep(5)
 
     #Consume's Race information
-       # self.driver.execute_script("scrollBy(0,1000);")
+
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.saveAndContinue)
-        sleep(2)
-     #   self.driver.find_element(By.XPATH, pageMapper.CommonObjects.saveAndContinue).click()
         sleep(5)
 
 
     # Consume's information
-       # self.driver.execute_script("scrollBy(0,1300);")
+
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.saveAndContinue)
-        sleep(3)
-     #   self.driver.find_element(By.XPATH, pageMapper.CommonObjects.saveAndContinue).click()
         sleep(5)
 
     # Consume' SSNs information

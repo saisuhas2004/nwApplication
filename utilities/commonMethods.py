@@ -39,7 +39,8 @@ class CommonMethods:
             "NC": "North Carolina",
             "SC": "South Carolina",
             "FL": "Florida",
-            "TX": "Texas"
+            "TX": "Texas",
+            "DE": "Delaware"
         }
         return thisdict.get(State)
 
