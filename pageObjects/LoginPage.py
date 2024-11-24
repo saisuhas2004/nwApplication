@@ -119,9 +119,7 @@ class LoginPage:
     def createAccountSecondSecurityQuestion(self):
         sleep(2)
         LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionTwoDropDown)
-       # self.driver.find_element(By.XPATH, LoginPage.securityQuestionTwoDropDown).click()
         LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionTwo)
-       # self.driver.find_element(By.XPATH, LoginPage.securityQuestionTwo).click()
         self.driver.find_element(By.NAME, LoginPage.securityQuestionTwoAns).send_keys(CommonMethods.readDataFromJson(self, "", "SecurityTwoAns"))
 
     def createAccountThirdSecurityQuestion(self):
@@ -159,7 +157,7 @@ class LoginPage:
         self.driver.find_element(By.NAME, LoginPage.pasword).send_keys(CommonMethods.readDataFromJson(self, "", "Password"))
         time.sleep(1)
         self.driver.find_element(By.ID, LoginPage.login).click()
-        time.sleep(5)
+        time.sleep(7)
         self.driver.find_element(By.XPATH, LoginPage.setUpLater).click()
         time.sleep(3)
         self.driver.find_element(By.XPATH, LoginPage.manageYourSetting).click()

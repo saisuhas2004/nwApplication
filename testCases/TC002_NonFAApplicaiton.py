@@ -6,6 +6,7 @@ import pytest
 from selenium import webdriver
 
 import pageObjects
+
 from pageObjects.LoginPage import LoginPage
 from pageObjects.accountHomePage import accountHomePage
 from pageObjects.homeAddress import homeAddress
@@ -42,6 +43,7 @@ class Test_002_NonFAApplicaiton:
 
 
     def test_FAApplicaiton(self, setup):
+        State = 'SC'
         self.logger.debug("Test Case_01 HomePage Title")
         self.driver = setup
         self.driver.get(self.baseURL)
@@ -60,13 +62,13 @@ class Test_002_NonFAApplicaiton:
         LoginPage.clickOn_LoginLink(self)
         LoginPage.LoginWithExistingAccount_HealthCare(self, writeToOracleDB.readFromDatabase())
        #start the application
-        accountHomePage.selectStateOnExistingAccountHomePage(self)
+        accountHomePage.selectStateOnExistingAccountHomePage(self, State)
         protectingYourPersonalInformation.protectingYourPersonalInformation(self)
         yourMarketPlaceApplicationPage.continueYourMarketPlaceApplicationPage(self)
         applicationSetupPage.applicationSetupPageContinue(self)
         decideToCheckForSavings.enterApplicationTaxFilingInformation(self)
         tellUsAboutYourself.tellUsAboutYourselfInformation(self)
-        homeAddress.homeAddressInfo(self)
+        homeAddress.homeAddressInfo(self,State)
         whoNeedsHealthCoverage.whoNeedHealthCoverage(self)
         currentCoverageAndSEP.currentCoverage(self)
         currentCoverageAndSEP.specialEnrollmentPeriodEligibility(self)
