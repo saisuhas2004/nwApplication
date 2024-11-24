@@ -37,7 +37,9 @@ class CommonMethods:
     def pickTheStateLocator(self, State):
         thisdict = {
             "NC": "North Carolina",
-            "SC": "South Carolina"
+            "SC": "South Carolina",
+            "FL": "Florida",
+            "TX": "Texas"
         }
         return thisdict.get(State)
 

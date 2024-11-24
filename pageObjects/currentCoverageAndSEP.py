@@ -118,7 +118,7 @@ class currentCoverageAndSEP:
             currentCoverageAndSEP.Commonmethods.actionToMoveToElement(self,
                                                                       currentCoverageAndSEP.signAndSubmitButton)
             #self.driver.find_element(By.XPATH, currentCoverageAndSEP.signAndSubmitButton).click()
-            sleep(22)
+            sleep(30)
 
             #Eligibility results
             currentCoverageAndSEP.Commonmethods.actionToMoveToElement(self,  currentCoverageAndSEP.viewEligibilityNotice)

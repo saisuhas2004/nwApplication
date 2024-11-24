@@ -43,7 +43,7 @@ class Test_002_NonFAApplicaiton:
 
 
     def test_FAApplicaiton(self, setup):
-        State = 'SC'
+        State = 'TX'
         self.logger.debug("Test Case_01 HomePage Title")
         self.driver = setup
         self.driver.get(self.baseURL)
