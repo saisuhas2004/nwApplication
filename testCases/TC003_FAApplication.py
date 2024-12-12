@@ -28,7 +28,7 @@ class Test_003_FAApplication:
     print(writeToOracleDB.readFromDatabase())
 
     def test_FAApplication(self, setup):
-        State = 'DE'
+        State = 'NC'
         self.logger.debug("Test Case_01 HomePage Title")
         self.driver = setup
         self.driver.get(self.baseURL)
@@ -48,4 +48,14 @@ class Test_003_FAApplication:
         protectingYourPersonalInformation.protectingYourPersonalInformation(self)
         yourMarketPlaceApplicationPage.continueYourMarketPlaceApplicationPage(self)
         applicationSetupPage.applicationSetupPageContinue(self)
-        decideToCheckForSavings.enterApplicationTaxFilingInformation(self)
+        decideToCheckForSavings.enterFAApplicationTaxFilingInformation(self)
+        tellUsAboutYourself.tellUsAboutYourselfInformation(self)
+        homeAddress.homeAddressInfo(self, State)
+        whoNeedsHealthCoverage.whoNeedHealthCoverageFAApplication(self)
+        currentCoverageAndSEP.currentCoverageFA(self)
+        currentCoverageAndSEP.specialEnrollmentPeriodEligibility(self)
+        currentCoverageAndSEP.healthReimbursementArrangementHRAOffers(self)
+        currentCoverageAndSEP.jobBasedHealthCoverage(self)
+        currentCoverageAndSEP.specialEnrollmentPeriodEligibility(self)
+        currentCoverageAndSEP.healthReimbursementArrangementHRAOffers(self)
+        currentCoverageAndSEP.specialEnrollmentPage(self)

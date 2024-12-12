@@ -76,115 +76,107 @@ class LoginPage:
             self.driver.find_elements(By.XPATH, LoginPage.popup).click()
 
     def clickOn_LoginLink(self):
-        sleep(10)
+        LoginPage.Commonmethods.page_is_loading(self)
         self.driver.find_element(By.XPATH, LoginPage.logIn).click()
 
     def createAccountLink(self):
-        sleep(5)
+        LoginPage.Commonmethods.page_is_loading(self)
         self.driver.find_element(By.XPATH, LoginPage.createAccount).click()
 
     def createAccount_pickTheStateYouLiveInDropDown(self):
-        sleep(7)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.pickTheStateYouLiveInDropDown,"Xpath")
         self.driver.find_element(By.XPATH, LoginPage.pickTheStateYouLiveInDropDown).click()
 
     def createAccountPickTheState(self):
-        sleep(3)
         LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.pickTheState)
 
     def createAccountEnterFirstName(self, State):
-        sleep(2)
         self.driver.find_element(By.NAME, LoginPage.firstName).send_keys(CommonMethods.readDataFromJson(self,State,"First_Name"))
 
     def createAccountEnterLastName(self, State):
-        sleep(2)
         self.driver.find_element(By.NAME, LoginPage.lastName).send_keys(CommonMethods.readDataFromJson(self, State, "Last_Name"))
 
     def createAccountEnterEmail(self, email):
-
         self.driver.find_element(By.NAME, LoginPage.emailAddress).send_keys(email)
 
 
     def createAccountEnterPassword(self):
-        sleep(2)
         self.driver.find_element(By.NAME, LoginPage.password).send_keys(CommonMethods.readDataFromJson(self, "", "Password"))
 
     def createAccountFirstSecurityQuestion(self):
-        sleep(3)
-        time.sleep(1)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.securityQuestionOneDropDown,"Xpath")
         LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionOneDropDown)
-        time.sleep(3)
         LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionOne)
         self.driver.find_element(By.NAME, LoginPage.securityQuestionOneAns).send_keys(CommonMethods.readDataFromJson(self, "", "SecurityOneAns"))
 
     def createAccountSecondSecurityQuestion(self):
-        sleep(2)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.securityQuestionTwoDropDown,"Xpath")
         LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionTwoDropDown)
         LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionTwo)
         self.driver.find_element(By.NAME, LoginPage.securityQuestionTwoAns).send_keys(CommonMethods.readDataFromJson(self, "", "SecurityTwoAns"))
 
     def createAccountThirdSecurityQuestion(self):
-        sleep(2)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.securityQuestionThreeDropDown,"Xpath")
         LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionThreeDropDown)
         LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.securityQuestionThree)
         self.driver.find_element(By.NAME, LoginPage.securityQuestionThreeAns).send_keys(CommonMethods.readDataFromJson(self, "", "SecurityThreeAns"))
-        sleep(3)
+
 
 
     def createAccount_ClickOnCreateAccountButton(self):
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.iUnderstandCheckBox,"Xpath")
         LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.iUnderstandCheckBox)
-        time.sleep(3)
-       # self.driver.find_element(By.ID, LoginPage.iUnderstandCheckBox).click()
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.createAccountButton, "Xpath")
         LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.createAccountButton)
-        #self.driver.find_element(By.ID, LoginPage.createAccountButton).click()
-        time.sleep(4)
+
 
     def createAccount_LogIntoAppSpotAccount(self,email):
-        time.sleep(3)
+        LoginPage.Commonmethods.page_is_loading(self)
         self.driver.find_element(By.NAME, LoginPage.emailAddressTextbox).send_keys(email)
-        time.sleep(1)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.checkMessageButton, "Xpath")
         self.driver.find_element(By.XPATH, LoginPage.checkMessageButton).click()
-        time.sleep(1)
-        self.driver.find_element(By.XPATH, LoginPage.checkMailInBox).click()
-        time.sleep(1)
+        LoginPage.Commonmethods.test_refresh_Button(self, LoginPage.checkMailInBox)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.verifyMyEmailAddress,"Xpath")
         self.driver.find_element(By.XPATH, LoginPage.verifyMyEmailAddress).click()
 
     def createAccount_LoginIntoHealtCare(self, email, State):
-        time.sleep(3)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.loginButton,"Xpath")
         self.driver.find_element(By.XPATH, LoginPage.loginButton).click()
-        time.sleep(2)
+        #time.sleep(2)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.username, "Name")
         self.driver.find_element(By.NAME, LoginPage.username).send_keys(email)
-        time.sleep(1)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.pasword, "Name")
         self.driver.find_element(By.NAME, LoginPage.pasword).send_keys(CommonMethods.readDataFromJson(self, "", "Password"))
-        time.sleep(1)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.login, "ID")
         self.driver.find_element(By.ID, LoginPage.login).click()
-        time.sleep(7)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.setUpLater,"Xpath")
         self.driver.find_element(By.XPATH, LoginPage.setUpLater).click()
-        time.sleep(3)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.manageYourSetting,"Xpath")
         self.driver.find_element(By.XPATH, LoginPage.manageYourSetting).click()
-        time.sleep(2)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.verifyNow,"Xpath")
         self.driver.find_element(By.XPATH, LoginPage.verifyNow).click()
-        time.sleep(2)
+
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.birthMonth,"Xpath")
         self.driver.find_element(By.XPATH, LoginPage.birthMonth).send_keys(CommonMethods.readDataFromJson(self,State,"Birth_Month"))
         self.driver.find_element(By.XPATH, LoginPage.birthDay).send_keys(CommonMethods.readDataFromJson(self,State,"Birth_Day"))
         self.driver.find_element(By.XPATH, LoginPage.birthYear).send_keys(CommonMethods.readDataFromJson(self,State,"Birth_Year"))
-        time.sleep(1)
+
         self.driver.find_element(By.XPATH, LoginPage.streetAddress).send_keys(CommonMethods.readDataFromJson(self,State,"AddressLine1"))
-        time.sleep(1)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.city,"Xpath")
         LoginPage.Commonmethods.actionToMoveToElement(self,  LoginPage.city)
-       # self.driver.execute_script("scrollBy(0,800);")
-        time.sleep(3)
+
+
         self.driver.find_element(By.XPATH, LoginPage.city).send_keys(CommonMethods.readDataFromJson(self,State,"City"))
         self.driver.find_element(By.XPATH, LoginPage.zip).send_keys(CommonMethods.readDataFromJson(self,State,"ZIPCode"))
 
         self.driver.find_element(By.XPATH, LoginPage.phone).send_keys(CommonMethods.readDataFromJson(self,State,"PhoneNumber"))
-        time.sleep(1)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.termsAndConditions,"Xpath")
         LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.termsAndConditions)
-        time.sleep(2)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.continueButton,"Xpath")
         LoginPage.Commonmethods.actionToMoveToElement(self, LoginPage.continueButton)
-        time.sleep(2)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, "h1", "Tag")
         messageValue = self.driver.find_element(By.TAG_NAME, "h1")
         print(messageValue)
-        time.sleep(6)
         time_string = time.asctime().replace(":", " ")
         self.driver.save_screenshot(
             "C:\\Users\\USER\\PycharmProjects\\nwApplication\\screenshots\\RIDPPage" + time_string + ".png")

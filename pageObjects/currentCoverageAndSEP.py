@@ -22,6 +22,9 @@ class currentCoverageAndSEP:
     viewEligibilityNotice="//button[@id='viewEligibility']"
     continueToEnrollment = "//button[@id='proceedToEnrollBtn']"
     applicationID="//p[text()='Application ID']"
+    noCurrentlyEnrolledInHealthCoverage="//*[@name='hasHealthCoverage'][@value='none']"
+    jobBasedHealthCoverageNO= "//*[@name='hasEscOffer'][@value='false']"
+
     def __init__(self, driver):
         self.driver = driver
 
@@ -32,6 +35,20 @@ class currentCoverageAndSEP:
         sleep(5)
         self.driver.find_element(By.XPATH, pageMapper.CommonObjects.continuButton).click()
         sleep(5)
+
+    # FA Current coverage
+    def currentCoverageFA(self):
+        currentCoverageAndSEP.Commonmethods.actionToMoveToElement(self, currentCoverageAndSEP.applicationID)
+        sleep(5)
+        self.driver.find_element(By.XPATH, pageMapper.CommonObjects.continuButton).click()
+        sleep(5)
+
+        # Current coverage -Is JOYCE currently enrolled in health coverage
+        currentCoverageAndSEP.Commonmethods.actionToMoveToElement(self, currentCoverageAndSEP.noCurrentlyEnrolledInHealthCoverage)
+        currentCoverageAndSEP.Commonmethods.actionToMoveToElement(self,
+                                                                  pageMapper.CommonObjects.saveAndContinue)
+
+
 
     #Special Enrollment Period eligibility
     def specialEnrollmentPeriodEligibility(self):
@@ -47,6 +64,15 @@ class currentCoverageAndSEP:
         self.driver.find_element(By.XPATH, currentCoverageAndSEP.HRASEPNo).click()
         currentCoverageAndSEP.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.saveAndContinue)
         sleep(5)
+
+        # Job-based health coverage
+    def jobBasedHealthCoverage(self):
+        currentCoverageAndSEP.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.continuButton)
+        sleep(5)
+        #Job-based health coverage
+        currentCoverageAndSEP.Commonmethods.actionToMoveToElement(self, currentCoverageAndSEP.jobBasedHealthCoverageNO)
+        currentCoverageAndSEP.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.saveAndContinue)
+
 
         #SEP - Recent coverage changes
     def specialEnrollmentPage(self):

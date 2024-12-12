@@ -1,7 +1,11 @@
 import json
+from time import sleep
 
+from selenium.common import TimeoutException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 class CommonMethods:
@@ -49,5 +53,50 @@ class CommonMethods:
         pickState = "//span[text()='" + stateValue + "']"
         print("pick the state value" + pickState)
         return pickState
+
+    def page_is_loading(self):
+        while True:
+            x = self.driver.execute_script("return document.readyState")
+            if x == "complete":
+                print("Page Loaded")
+                return True
+            else:
+                yield False
+    def test_timeouts_explicit_wait(self, xpath, xpathType):
+        # Define Fluent Wait (polling every 500 milliseconds and ignoring NoSuchElementException)
+        wait = WebDriverWait(self.driver, 10, poll_frequency=0.5, ignored_exceptions=[TimeoutException])
+        match xpathType:
+            case "Xpath":
+                # Use the wait to wait for an element to be present
+                element = wait.until(expected_conditions.presence_of_element_located((By.XPATH, xpath)))
+            case "Name":
+                # Use the wait to wait for an element to be present
+                element = wait.until(expected_conditions.presence_of_element_located((By.NAME, xpath)))
+            case "ID":
+                # Use the wait to wait for an element to be present
+                element = wait.until(expected_conditions.presence_of_element_located((By.ID, xpath)))
+            case "Tag":
+                # Use the wait to wait for an element to be present
+                element = wait.until(expected_conditions.presence_of_element_located((By.TAG_NAME, xpath)))
+        # Perform actions with the element
+        #element.send_keys("text")
+
+    def test_refresh_Button(self, xpath):
+        # Define Fluent Wait (polling every 500 milliseconds and ignoring NoSuchElementException)
+            for i in range(6):
+                sleep(2)
+                self.driver.refresh()
+                if len(self.driver.find_elements(By.XPATH, xpath)) > 0:
+                    break
+
+            if len(self.driver.find_elements(By.XPATH, xpath)) > 0:
+                self.driver.find_element(By.XPATH, xpath).click()
+            else:
+                print("Email is not triggered in Inbox. Stop the test")
+                exit()
+
+
+
+
 
 

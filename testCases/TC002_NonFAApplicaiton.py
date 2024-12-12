@@ -40,6 +40,10 @@ class Test_002_NonFAApplication:
     def test_NonFAApplication(self, setup):
         State = 'DE'
         self.logger.debug("Test Case_01 HomePage Title")
+        options = webdriver.ChromeOptions()
+        options.timeouts = {'pageLoad': 5000}
+        options.page_load_strategy = 'normal'
+        self.driver = webdriver.Chrome(options=options)
         self.driver = setup
         self.driver.get(self.baseURL)
         act_title = self.driver.title

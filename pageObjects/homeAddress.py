@@ -32,7 +32,7 @@ class homeAddress:
         sleep(3)
 
         homeAddress.Commonmethods.actionToMoveToElement(self,homeAddress.homeAddressCity)
-        sleep(2)
+        #sleep(2)
         self.driver.find_element(By.XPATH, homeAddress.homeAddressCity).send_keys(Keys.CONTROL + "a")
         self.driver.find_element(By.XPATH, homeAddress.homeAddressCity).send_keys(Keys.DELETE)
         self.driver.find_element(By.XPATH, homeAddress.homeAddressCity).send_keys(CommonMethods.readDataFromJson(self,State,"City"))
