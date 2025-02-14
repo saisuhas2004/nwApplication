@@ -7,6 +7,7 @@ from utilities.commonMethods import CommonMethods
 
 
 class accountHomePage:
+    Commonmethods = CommonMethods
     pickTheStateYouLiveInDropDown = "//*[@id='stateDropdown']"
     startapplication="//button[text()='Start application']"
     ContinueButton = "fars-continue"
@@ -30,12 +31,13 @@ class accountHomePage:
         self.driver.find_element(By.XPATH, CommonMethods.pickTheState(self,State)).click()
         self.driver.find_element(By.XPATH, accountHomePage.startapplication).click()
 
+
     def selectStateOnExistingAccountHomePage(self, State):
         sleep(5)
 
         if len(self.driver.find_elements(By.XPATH, accountHomePage.viewAllApplications)) > 0:
             self.driver.find_element(By.XPATH, accountHomePage.viewAllApplications).click()
-        sleep(5)
+        accountHomePage.Commonmethods.test_timeouts_explicit_wait(self, accountHomePage.pickTheStateYouLiveInDropDown,"Xpath")
         self.driver.find_element(By.XPATH, accountHomePage.pickTheStateYouLiveInDropDown).click()
         sleep(1)
         # get  element

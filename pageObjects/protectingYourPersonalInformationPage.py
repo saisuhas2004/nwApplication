@@ -18,9 +18,10 @@ class protectingYourPersonalInformation:
         self.driver=driver
 
     def protectingYourPersonalInformation(self):
-        sleep(5)
+        protectingYourPersonalInformation.Commonmethods.test_timeouts_explicit_wait(self, protectingYourPersonalInformation.IAgree, "Xpath")
         protectingYourPersonalInformation.Commonmethods.actionToMoveToElement(self, protectingYourPersonalInformation.IAgree)
-        sleep(1)
+        protectingYourPersonalInformation.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                                    protectingYourPersonalInformation.IUnderstand,
+                                                                                    "Xpath")
         protectingYourPersonalInformation.Commonmethods.actionToMoveToElement(self, protectingYourPersonalInformation.IUnderstand)
         protectingYourPersonalInformation.Commonmethods.actionToMoveToElement(self, protectingYourPersonalInformation.ContinueButton)
-        sleep(5)

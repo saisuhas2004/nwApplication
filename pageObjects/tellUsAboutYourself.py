@@ -2,9 +2,10 @@ from time import sleep
 
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
-
+from utilities.commonMethods import CommonMethods
 
 class tellUsAboutYourself:
+    Commonmethods = CommonMethods
     doYouNeedCoverage ="//input[@name='isRequestingCoverage'][@value='true']"
     birthYear= "//input[@name='year']"
     sex="//input[@value='MALE']"
@@ -14,6 +15,9 @@ class tellUsAboutYourself:
         self.driver = driver
 
     def tellUsAboutYourselfInformation(self):
+        tellUsAboutYourself.Commonmethods.page_is_loading(self)
+        tellUsAboutYourself.Commonmethods.test_timeouts_explicit_wait(self, tellUsAboutYourself.doYouNeedCoverage, "Xpath")
+        sleep(5)
         self.driver.find_element(By.XPATH, tellUsAboutYourself.doYouNeedCoverage).click()
         sleep(3)
         self.driver.execute_script("scrollBy(0,1000);")
@@ -25,4 +29,4 @@ class tellUsAboutYourself:
         self.driver.find_element(By.XPATH, tellUsAboutYourself.sex).click()
         self.driver.execute_script("scrollBy(0,200);")
         self.driver.find_element(By.XPATH, tellUsAboutYourself.saveAndContinue).click()
-        sleep(5)
+

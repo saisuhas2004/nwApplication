@@ -3,9 +3,11 @@ from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.by import By
 
+from utilities.commonMethods import CommonMethods
+
 
 class yourMarketPlaceApplicationPage:
-
+    Commonmethods = CommonMethods
 
     ContinueToApplication ="//span[text()='Continue to application']"
 
@@ -17,8 +19,8 @@ class yourMarketPlaceApplicationPage:
         self.driver=driver
 
     def continueYourMarketPlaceApplicationPage(self):
-        sleep(5)
+        sleep(3)
         self.driver.execute_script("scrollBy(0,500);")
-        sleep(2)
+        yourMarketPlaceApplicationPage.Commonmethods.test_timeouts_explicit_wait(self, yourMarketPlaceApplicationPage.ContinueToApplication, "Xpath")
         self.driver.find_element(By.XPATH, yourMarketPlaceApplicationPage.ContinueToApplication).click()
-        sleep(5)
+

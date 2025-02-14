@@ -63,19 +63,26 @@ class CommonMethods:
             else:
                 yield False
     def test_timeouts_explicit_wait(self, xpath, xpathType):
-        # Define Fluent Wait (polling every 500 milliseconds and ignoring NoSuchElementException)
-        wait = WebDriverWait(self.driver, 10, poll_frequency=0.5, ignored_exceptions=[TimeoutException])
+
         match xpathType:
             case "Xpath":
+                # Define Fluent Wait (polling every 500 milliseconds and ignoring NoSuchElementException)
+                wait = WebDriverWait(self.driver, 10, poll_frequency=0.5, ignored_exceptions=[TimeoutException])
                 # Use the wait to wait for an element to be present
                 element = wait.until(expected_conditions.presence_of_element_located((By.XPATH, xpath)))
             case "Name":
+                # Define Fluent Wait (polling every 500 milliseconds and ignoring NoSuchElementException)
+                wait = WebDriverWait(self.driver, 10, poll_frequency=0.5, ignored_exceptions=[TimeoutException])
                 # Use the wait to wait for an element to be present
                 element = wait.until(expected_conditions.presence_of_element_located((By.NAME, xpath)))
             case "ID":
+                # Define Fluent Wait (polling every 500 milliseconds and ignoring NoSuchElementException)
+                wait = WebDriverWait(self.driver, 10, poll_frequency=0.5, ignored_exceptions=[TimeoutException])
                 # Use the wait to wait for an element to be present
                 element = wait.until(expected_conditions.presence_of_element_located((By.ID, xpath)))
             case "Tag":
+                # Define Fluent Wait (polling every 500 milliseconds and ignoring NoSuchElementException)
+                wait = WebDriverWait(self.driver, 10, poll_frequency=0.5, ignored_exceptions=[TimeoutException])
                 # Use the wait to wait for an element to be present
                 element = wait.until(expected_conditions.presence_of_element_located((By.TAG_NAME, xpath)))
         # Perform actions with the element
@@ -83,7 +90,7 @@ class CommonMethods:
 
     def test_refresh_Button(self, xpath):
         # Define Fluent Wait (polling every 500 milliseconds and ignoring NoSuchElementException)
-            for i in range(6):
+            for i in range(10):
                 sleep(2)
                 self.driver.refresh()
                 if len(self.driver.find_elements(By.XPATH, xpath)) > 0:

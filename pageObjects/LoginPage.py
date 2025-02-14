@@ -192,10 +192,10 @@ class LoginPage:
         self.driver.find_element(By.ID, self.password_texbox_ID).send_keys(password)
 
     def LoginWithExistingAccount_HealthCare(self, registered_Email):
-        time.sleep(2)
+        #time.sleep(2)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.username, "Name")
         self.driver.find_element(By.NAME, LoginPage.username).send_keys(registered_Email)
-        time.sleep(1)
         self.driver.find_element(By.NAME, LoginPage.pasword).send_keys(CommonMethods.readDataFromJson(self, "", "Password"))
-        time.sleep(1)
+        LoginPage.Commonmethods.test_timeouts_explicit_wait(self, LoginPage.login, "ID")
         self.driver.find_element(By.ID, LoginPage.login).click()
         time.sleep(5)

@@ -34,107 +34,155 @@ class whoNeedsHealthCoverage:
 
 
     def whoNeedHealthCoverage(self):
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self, pageMapper.CommonObjects.saveAndContinue, "Xpath")
         self.driver.find_element(By.XPATH, pageMapper.CommonObjects.saveAndContinue).click()
         sleep(5)
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self, pageMapper.CommonObjects.saveAndContinue,
+                                                                         "Xpath")
+        self.driver.find_element(By.XPATH, pageMapper.CommonObjects.saveAndContinue).click()
 
     #Personal & household information
-        #self.driver.execute_script("scrollBy(0,1000);")
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self, pageMapper.CommonObjects.continuButton,"Xpath")
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.continuButton)
-        sleep(5)
+       # sleep(5)
 
 
     #Household information
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self, whoNeedsHealthCoverage.noneOfTheseApplyToThePeopleInTheHouseHold,
+                                                                         "Xpath")
         self.driver.find_element(By.XPATH, whoNeedsHealthCoverage.noneOfTheseApplyToThePeopleInTheHouseHold).click()
         self.driver.find_element(By.XPATH, pageMapper.CommonObjects.saveAndContinue).click()
-        sleep(5)
+        #sleep(5)
 
 
     #Help improve health care access
-
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         pageMapper.CommonObjects.continuButton,
+                                                                         "Xpath")
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.continuButton)
-        sleep(5)
+        #sleep(5)
 
     #Consume's Race information
-
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         pageMapper.CommonObjects.saveAndContinue,
+                                                                         "Xpath")
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.saveAndContinue)
-        sleep(5)
+        #sleep(5)
 
 
     # Consume's information
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         pageMapper.CommonObjects.saveAndContinue,
+                                                                         "Xpath")
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.saveAndContinue)
-        sleep(5)
+       # sleep(5)
 
     # Consume' SSNs information
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         whoNeedsHealthCoverage.dontHaveSSN,
+                                                                         "Xpath")
         ApplicationID = self.driver.find_element(By.XPATH, whoNeedsHealthCoverage.applicationID)
         print(ApplicationID.text)
         whoNeedsHealthCoverage.Commonmethods.writeToTextFile(ApplicationID.text)
 
         self.driver.find_element(By.XPATH, whoNeedsHealthCoverage.dontHaveSSN).click()
         self.driver.find_element(By.XPATH, pageMapper.CommonObjects.saveAndContinue).click()
-        sleep(5)
+        #sleep(5)
 
     #Citizenship & immigration status
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         whoNeedsHealthCoverage.citizenshipYes,
+                                                                         "Xpath")
         self.driver.find_element(By.XPATH, whoNeedsHealthCoverage.citizenshipYes).click()
         self.driver.find_element(By.XPATH, pageMapper.CommonObjects.saveAndContinue).click()
-        sleep(5)
+        #sleep(5)
 
     # naturalized
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         whoNeedsHealthCoverage.naturalizedNo,
+                                                                         "Xpath")
         self.driver.find_element(By.XPATH, whoNeedsHealthCoverage.naturalizedNo ).click()
         self.driver.find_element(By.XPATH, pageMapper.CommonObjects.saveAndContinue).click()
-        sleep(5)
+        #sleep(5)
 
     def whoNeedHealthCoverageFAApplication(self):
         # Who needs health coverage?
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         pageMapper.CommonObjects.saveAndContinue,
+                                                                         "Xpath")
         self.driver.find_element(By.XPATH, pageMapper.CommonObjects.saveAndContinue).click()
-        sleep(5)
+        #sleep(5)
 
         # Personal & household information
-        # self.driver.execute_script("scrollBy(0,1000);")
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         pageMapper.CommonObjects.saveAndContinue,
+                                                                         "Xpath")
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.continuButton)
-        sleep(5)
+        #sleep(5)
 
         #Marital status
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         whoNeedsHealthCoverage.single,
+                                                                         "Xpath")
         self.driver.find_element(By.XPATH,whoNeedsHealthCoverage.single).click()
         self.driver.find_element(By.XPATH, pageMapper.CommonObjects.saveAndContinue).click()
-        sleep(5)
+       # sleep(5)
 
         # Household information
        # self.driver.find_element(By.XPATH, whoNeedsHealthCoverage.single).click()
 
         # Household tax returns
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         whoNeedsHealthCoverage.willFileAFederalIncomeTaxReturn,
+                                                                         "Xpath")
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, whoNeedsHealthCoverage.willFileAFederalIncomeTaxReturn)
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, whoNeedsHealthCoverage.claimAnyDependent)
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, whoNeedsHealthCoverage.willSomeOneClamAsDependent)
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self,
                                                                    pageMapper.CommonObjects.saveAndContinue)
-        sleep(5)
+        #sleep(5)
 
         # Parents & caretaker relatives
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         whoNeedsHealthCoverage.parentsAndCaretakerRelatives,
+                                                                         "Xpath")
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self,
                                                                    whoNeedsHealthCoverage.parentsAndCaretakerRelatives)
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self,
                                                                    pageMapper.CommonObjects.saveAndContinue)
-        sleep(5)
+        #sleep(5)
 
         # Household information
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         whoNeedsHealthCoverage.noneOfTheseApplyToThePeopleInTheHouseHold,
+                                                                         "Xpath")
         self.driver.find_element(By.XPATH, whoNeedsHealthCoverage.noneOfTheseApplyToThePeopleInTheHouseHold).click()
         self.driver.find_element(By.XPATH, pageMapper.CommonObjects.saveAndContinue).click()
-        sleep(5)
+        #sleep(5)
 
         # Help improve health care access
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         pageMapper.CommonObjects.saveAndContinue,
+                                                                         "Xpath")
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.continuButton)
-        sleep(5)
+        #sleep(5)
 
         # Consume's Race information
-
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         pageMapper.CommonObjects.saveAndContinue,
+                                                                         "Xpath")
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.saveAndContinue)
-        sleep(5)
+        #sleep(5)
 
         # Consume's information
-
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         pageMapper.CommonObjects.saveAndContinue,
+                                                                         "Xpath")
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.saveAndContinue)
-        sleep(5)
-
+        #sleep(5)
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         whoNeedsHealthCoverage.applicationID,
+                                                                         "Xpath")
         # Consume' SSNs information
         ApplicationID = self.driver.find_element(By.XPATH, whoNeedsHealthCoverage.applicationID)
         print(ApplicationID.text)
@@ -142,38 +190,60 @@ class whoNeedsHealthCoverage:
 
         self.driver.find_element(By.XPATH, whoNeedsHealthCoverage.dontHaveSSN).click()
         self.driver.find_element(By.XPATH, pageMapper.CommonObjects.saveAndContinue).click()
-        sleep(5)
+        #sleep(5)
 
         # Citizenship & immigration status
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         whoNeedsHealthCoverage.citizenshipYes,
+                                                                         "Xpath")
         self.driver.find_element(By.XPATH, whoNeedsHealthCoverage.citizenshipYes).click()
         self.driver.find_element(By.XPATH, pageMapper.CommonObjects.saveAndContinue).click()
-        sleep(5)
+        #sleep(5)
 
         # naturalized
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         whoNeedsHealthCoverage.naturalizedNo,
+                                                                         "Xpath")
         self.driver.find_element(By.XPATH, whoNeedsHealthCoverage.naturalizedNo).click()
         self.driver.find_element(By.XPATH, pageMapper.CommonObjects.saveAndContinue).click()
-        sleep(5)
+        #sleep(5)
 
         # Disabilities & help with activities
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         pageMapper.CommonObjects.saveAndContinue,
+                                                                         "Xpath")
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.saveAndContinue)
-        sleep(5)
+        #sleep(5)
 
         #Medicaid or CHIP coverage ending
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         whoNeedsHealthCoverage.medicaidOrCHIPCoverageEnding,
+                                                                         "Xpath")
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, whoNeedsHealthCoverage.medicaidOrCHIPCoverageEnding)
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.saveAndContinue)
-        sleep(5)
+        #sleep(5)
 
         # Recent Medicaid or CHIP denial
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         whoNeedsHealthCoverage.medicaidOrCHIPDenial,
+                                                                         "Xpath")
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self,
                                                                    whoNeedsHealthCoverage.medicaidOrCHIPDenial)
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.saveAndContinue)
-        sleep(5)
+        #sleep(5)
 
         #Household income
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         pageMapper.CommonObjects.saveAndContinue,
+                                                                         "Xpath")
+
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, pageMapper.CommonObjects.continuButton)
-        sleep(5)
+        #sleep(5)
 
         #'s income for this month
+        whoNeedsHealthCoverage.Commonmethods.test_timeouts_explicit_wait(self,
+                                                                         whoNeedsHealthCoverage.selectIncomeType,
+                                                                         "Xpath")
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, whoNeedsHealthCoverage.selectIncomeType)
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, whoNeedsHealthCoverage.job)
         whoNeedsHealthCoverage.Commonmethods.actionToMoveToElement(self, whoNeedsHealthCoverage.employerName)
